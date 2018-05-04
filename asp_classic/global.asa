@@ -1,0 +1,8 @@
+﻿<!--METADATA TYPE="TypeLib"    
+   UUID="{00000205-0000-0010-8000-00AA006D2EA4}"    
+-->
+<script language="vbscript" runat="server">
+Sub Application_OnStart
+    Application("ConnectionString") = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & Server.MapPath("/App_Data/Northwind.mdb") & ";"
+End Sub
+</script>
