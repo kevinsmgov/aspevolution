@@ -1,0 +1,33 @@
+﻿<%@ Master Language="VB" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+</script>
+
+<html>
+<head runat="server">
+    <title>ASP.NET WebForms VB</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <h1>ASP.NET WebForms VB
+            </h1>
+            <asp:Menu ID="Menu1" runat="server">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/DatabaseSingleQuery.aspx" Text="Database Single Query" Value="Database Single Query"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/DatabaseNestedQuery.aspx" Text="Database Nested Query" Value="Database Nested Query"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+            <p>&nbsp;</p>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

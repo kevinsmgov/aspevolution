@@ -19,7 +19,7 @@
         <% 
         DatabaseConnection.Open Application("ConnectionStringDataShape")
         if DatabaseConnection.State = adStateOpen then
-            CustomerRecordset.Open "SHAPE {SELECT CustomerID, ContactName FROM Customers ORDER BY ContactName} APPEND ((SHAPE {SELECT OrderID, ShippedDate, CustomerID FROM Orders} APPEND ({SELECT [Order Details].OrderID, Products.ProductName, [Order Details].UnitPrice, [Order Details].Quantity FROM [Order Details] INNER JOIN Products ON [Order Details].ProductID = Products.ProductID } AS rsLineItem RELATE OrderID to OrderID )) AS rsCustomerOrders RELATE CustomerID to CustomerID)", DatabaseConnection 
+            CustomerRecordset.Open "SHAPE {SELECT CustomerID, ContactName FROM Customers ORDER BY ContactName} APPEND ((SHAPE {SELECT OrderID, OrderDate, CustomerID FROM Orders} APPEND ({SELECT [Order Details].OrderID, Products.ProductName, [Order Details].UnitPrice, [Order Details].Quantity FROM [Order Details] INNER JOIN Products ON [Order Details].ProductID = Products.ProductID } AS rsLineItem RELATE OrderID to OrderID )) AS rsCustomerOrders RELATE CustomerID to CustomerID)", DatabaseConnection 
             Do While not CustomerRecordset.EOF
         %>
         <li>
@@ -32,7 +32,7 @@
                 <li>
                     <%= OrderRecordset("OrderID") %>
                         -
-                        <%= OrderRecordset("ShippedDate") %>
+                        <%= OrderRecordset("OrderDate") %>
                     <ul>
                         <%
                             Set OrderDetailRecordset = OrderRecordset("rsLineItem").Value

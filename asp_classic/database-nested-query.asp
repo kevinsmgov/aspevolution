@@ -28,7 +28,7 @@
                 <%
                 Set customerid = DatabaseCommand.CreateParameter(, adVarChar, adParamInput, 255, CustomerRecordset("customerid"))
                 DatabaseCommand.ActiveConnection  = DatabaseConnection
-                DatabaseCommand.CommandText =  "SELECT OrderID, ShippedDate FROM Orders WHERE CustomerID = ?"
+                DatabaseCommand.CommandText =  "SELECT OrderID, OrderDate FROM Orders WHERE CustomerID = ?"
                 DatabaseCommand.CommandType = adCmdText
                 DatabaseCommand.Parameters(0) = customerid
                 Set OrderRecordset = DatabaseCommand.Execute
@@ -37,7 +37,7 @@
                 <li>
                     <%= OrderRecordset("OrderID") %>
                         -
-                        <%= OrderRecordset("ShippedDate") %>
+                        <%= OrderRecordset("OrderDate") %>
                     <ul>
                         <%
                             Set orderid = DatabaseCommand.CreateParameter(, adInteger, adParamInput, , OrderRecordset("orderid"))
