@@ -16,7 +16,16 @@
         <li>ASP.NET WebPages (mostly hidden MVC underneath)</li>
         <li>ASP.NET Razor Pages (mostly hidden MVC underneath)</li>
     </ol>
-    <p>
-        <a href="database.asp">Database Example</a></p>
+    <ul>
+        <li>
+            <a href="database-single-query.asp">Database Single Query Example</a>
+        </li>
+        <li>
+            <a href="database-nested-query.asp">Database Nested Query Example</a>
+        </li>
+        <li>
+            <a href="database-shaped-query.asp">Database Nested Query Example Using Data Shaping</a>
+        </li>
+    </ul>
 </body>
 </html>

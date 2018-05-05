@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
 <%
-    Dim DatabaseConnection, DatabaseRecordset
     Set DatabaseConnection = Server.CreateObject("ADODB.Connection") 
-    Set DatabaseRecordset = Server.CreateObject("ADODB.Recordset")
+    Set CustomerRecordset = Server.CreateObject("ADODB.Recordset")
 %>
 <html>
 <head>
@@ -11,18 +10,19 @@
 </head>
 <body>
     <h1>Classic ASP - Database</h1>
+    <p>Here's a single query example from the Northwind database. A simple select and subsequent loop through the results.</p>
     <ul>
         <% 
         DatabaseConnection.Open Application("ConnectionString")
         if DatabaseConnection.State = adStateOpen then
-            DatabaseRecordset.Open "SELECT * FROM Customers ORDER BY ContactName", DatabaseConnection 
-            Do While not DatabaseRecordset.EOF
+            CustomerRecordset.Open "SELECT ContactName FROM Customers ORDER BY ContactName", DatabaseConnection 
+            Do While not CustomerRecordset.EOF
         %>
-        <li><%= DatabaseRecordset("ContactName") %></li>
+        <li><%= CustomerRecordset("ContactName") %></li>
         <%
-                DatabaseRecordset.MoveNext
+                CustomerRecordset.MoveNext
             Loop
-            DatabaseRecordset.Close
+            CustomerRecordset.Close
             DatabaseConnection.Close
         End if
         %>

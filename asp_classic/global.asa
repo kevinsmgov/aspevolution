@@ -4,5 +4,6 @@
 <script language="vbscript" runat="server">
 Sub Application_OnStart
     Application("ConnectionString") = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & Server.MapPath("/App_Data/Northwind.mdb") & ";"
+    Application("ConnectionStringDataShape") = "Provider=MSDataShape;Data Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & Server.MapPath("/App_Data/Northwind.mdb") & ";"
 End Sub
 </script>
