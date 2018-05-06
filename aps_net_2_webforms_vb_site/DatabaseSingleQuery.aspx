@@ -1,6 +1,12 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" %>
+﻿<%@ Page Title="Database Single Query - ASP.NET WebForms VB" Language="VB" MasterPageFile="~/MasterPage.master" %>
 
 <script runat="server">
+
+    Sub Page_Load(ByVal Sender As System.Object, ByVal e As System.EventArgs)
+        Dim dataSource As New AccessDataSource(Server.MapPath("~/App_Data/Northwind.mdb"), "SELECT ContactName from Customers ORDER BY ContactName")
+        RepeaterCustomer.DataSource = dataSource
+        RepeaterCustomer.DataBind()
+    End Sub
 
 </script>
 
@@ -10,14 +16,12 @@
     <p>Here's a single query example from the Northwind database. The query is hidden away in the dataset object.</p>
 
     <ul>
-        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSourceCustomer">
+        <asp:Repeater ID="RepeaterCustomer" runat="server">
             <ItemTemplate>
                 <li>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("ContactName") %>'></asp:Label></li>
             </ItemTemplate>
         </asp:Repeater>
     </ul>
-    <asp:ObjectDataSource ID="ObjectDataSourceCustomer" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="NorthwindDataSetTableAdapters.CustomersTableAdapter">
-    </asp:ObjectDataSource>
 </asp:Content>
 

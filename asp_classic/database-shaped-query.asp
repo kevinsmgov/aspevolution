@@ -10,9 +10,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Classic ASP - Database</title>
+    <style>
+        body {
+            width: 66em;
+        }
+    </style>
 </head>
 <body>
     <h1>Classic ASP - Database</h1>
+    <!-- #include file="menu.asp" -->
     <p>Here's a nested query example from the Northwind database. The query uses the data shaping provider to produce an hierarchical result.</p>
     <p>Data shaping is something of a precursor to LINQ (although, they are not complete exclusive to each other). The query requests the three levels of rows from the database and then relates them on the client side to create the hierarchy.</p>
     <ul>

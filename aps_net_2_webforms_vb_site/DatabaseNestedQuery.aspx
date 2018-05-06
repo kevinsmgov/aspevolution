@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="True" %>
+﻿<%@ Page Title="Database Nested Query - ASP.NET WebForms VB" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="True" %>
 
 <script runat="server">
 
@@ -23,7 +23,6 @@
 
     <ul>
         <asp:Repeater ID="RepeaterCustomer" runat="server">
-            <%--DataSourceID="ObjectDataSourceCustomer"--%>
             <ItemTemplate>
                 <li>
                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("ContactName") %>'></asp:Label>
@@ -56,6 +55,5 @@
             </ItemTemplate>
         </asp:Repeater>
     </ul>
-    <asp:ObjectDataSource ID="ObjectDataSourceCustomer" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="NorthwindDataSetTableAdapters.CustomersTableAdapter"></asp:ObjectDataSource>
 </asp:Content>
 

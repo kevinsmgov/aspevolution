@@ -9,6 +9,11 @@
 <html>
 <head runat="server">
     <title>ASP.NET WebForms VB</title>
+    <style>
+        body {
+            width: 66em;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -20,6 +25,8 @@
             <asp:Menu ID="Menu1" runat="server">
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/DatabaseSingleQueryClassic.aspx" Text="Database Single Query Classic" Value="Database Single Query Classic"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/DatabaseNestedQueryClassic.aspx" Text="Database Nested Query Classic" Value="Database Nested Query Classic"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/DatabaseSingleQuery.aspx" Text="Database Single Query" Value="Database Single Query"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/DatabaseNestedQuery.aspx" Text="Database Nested Query" Value="Database Nested Query"></asp:MenuItem>
                 </Items>
