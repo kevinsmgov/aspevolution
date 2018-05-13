@@ -28,6 +28,7 @@
                     <asp:MenuItem NavigateUrl="~/DatabaseSingleQueryClassic.aspx" Text="Database Single Query Classic" Value="Database Single Query Classic"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/DatabaseNestedQueryClassic.aspx" Text="Database Nested Query Classic" Value="Database Nested Query Classic"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/DatabaseNestedQueryClassicDataShape.aspx" Text="Database Nested Query" Value="Database Nested Query - DataShape"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/DatabaseNestedQueryClassicXML.aspx" Text="Database Nested Query SQL XML" Value="Database Nested Query SQL XML"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/DatabaseSingleQuery.aspx" Text="Database Single Query" Value="Database Single Query"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/DatabaseNestedQueryDataset.aspx" Text="Database Nested Query" Value="Database Nested Query - Dataset"></asp:MenuItem>
                 </Items>
