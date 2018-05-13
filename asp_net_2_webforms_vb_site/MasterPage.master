@@ -8,7 +8,7 @@
 
 <html>
 <head runat="server">
-    <title>ASP.NET WebForms VB</title>
+    <title>ASP.NET 2.0 WebForms VB</title>
     <style>
         body {
             width: 66em;
@@ -20,7 +20,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1>ASP.NET WebForms VB
+            <h1>ASP.NET 2.0 WebForms VB
             </h1>
             <asp:Menu ID="Menu1" runat="server">
                 <Items>
