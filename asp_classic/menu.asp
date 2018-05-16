@@ -3,6 +3,9 @@
 		<a href="default.asp">Home</a>
 	</li>
 	<li>
+		<a href="forms.asp">Form Example</a>
+	</li>
+	<li>
 		<a href="database-single-query.asp">Database Single Query Example</a>
 	</li>
 	<li>
