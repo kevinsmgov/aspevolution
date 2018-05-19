@@ -10,7 +10,7 @@
         Dim DatabaseConnection As New System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings.Item("NorthwindSQLConnectionString").ConnectionString)
         DatabaseConnection.Open()
         If DatabaseConnection.State = ConnectionState.Open Then
-            Dim CustomerCommand As New System.Data.SqlClient.SqlCommand("SELECT Customers.CustomerID, Customers.ContactName, Orders.OrderID, Orders.OrderDate, [Order Details].UnitPrice, [Order Details].Quantity, [Order Details].UnitPrice * [Order Details].Quantity AS TotalPrice, [Order Details].Discount, Products.ProductName FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID INNER JOIN Products ON [Order Details].ProductID = Products.ProductID ORDER BY Customers.ContactName, Orders.OrderDate FOR XML AUTO, ROOT('root')", DatabaseConnection)
+            Dim CustomerCommand As New System.Data.SqlClient.SqlCommand("SELECT Customers.CustomerID, Customers.ContactName, Orders.OrderID, Orders.OrderDate, [Order Details].UnitPrice, [Order Details].Quantity, [Order Details].Discount, Products.ProductName FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID INNER JOIN Products ON [Order Details].ProductID = Products.ProductID ORDER BY Customers.ContactName, Orders.OrderDate FOR XML AUTO, ROOT('root')", DatabaseConnection)
             Dim xmlDocment As New System.Xml.XmlDocument()
             xmlDocment.Load(CustomerCommand.ExecuteXmlReader())
             Xml1.Document = xmlDocment
