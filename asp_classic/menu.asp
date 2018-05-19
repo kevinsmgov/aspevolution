@@ -14,4 +14,10 @@
 	<li>
 		<a href="database-shaped-query.asp">Database Nested Query Example Using Data Shaping</a>
 	</li>
+	<li>
+		<a href="database-nested-query-xml.asp">XML Nested Example</a>
+	</li>
+	<li>
+		<a href="database-nested-query-xml-xslt.asp">XML Nested Example with XSLT</a>
+	</li>
 </ul>
