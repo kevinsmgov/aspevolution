@@ -11,12 +11,12 @@
     <li>
       <xsl:apply-templates/>
       (
-      <xsl:value-of select="@UnitPrice"/>
+      <xsl:value-of select="number(@UnitPrice)"/>
       ×
-      <xsl:value-of select="@Quantity"/>
+      <xsl:value-of select="number(@Quantity)"/>
       )
       =
-      <xsl:value-of select="@TotalPrice"/>
+      <xsl:value-of select="format-number(number(@UnitPrice)*number(@Quantity),'#,###.00')"/>
     </li>
   </xsl:template>
 

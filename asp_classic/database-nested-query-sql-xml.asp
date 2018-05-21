@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
+    Set DatabaseConnection = Server.CreateObject("ADODB.Connection") 
+    Set DatabaseCommand = Server.CreateObject("ADODB.Command") 
+    Set DatabaseStream = Server.CreateObject("ADODB.Stream")
     Set customerOrdersXML = Server.CreateObject( "Microsoft.XMLDOM" )
 %>
 <html>
@@ -13,12 +16,21 @@
     </style>
 </head>
 <body>
-    <h1>Classic ASP - XML</h1>
+    <h1>Classic ASP - Database</h1>
     <!-- #include file="menu.asp" -->
-    <p>Here is a nested result from an XML data file</p>
+    <p>Here's a nested query example from the Northwind database. By using the "FOR XML" clause in the SQL query, the result is returned with the hierarchy intact allowing us to traverse it easily.</p>
     <ul>
         <% 
-            If customerOrdersXML.Load(Server.MapPath("/App_Data/customer-orders.xml")) Then
+        DatabaseConnection.Open Application("ConnectionStringSQL")
+        DatabaseStream.Open
+        if DatabaseConnection.State = adStateOpen then
+            DatabaseCommand.ActiveConnection = DatabaseConnection
+            DatabaseCommand.CommandText = "SELECT Customers.CustomerID, Customers.ContactName, Orders.OrderID, Orders.OrderDate, [Order Details].UnitPrice, [Order Details].Quantity, [Order Details].Discount, Products.ProductName FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID INNER JOIN Products ON [Order Details].ProductID = Products.ProductID ORDER BY Customers.ContactName, Orders.OrderDate FOR XML AUTO, ROOT('root')"
+            DatabaseCommand.Properties("Output Stream") = DatabaseStream
+            DatabaseCommand.Execute , , 1024 'instead of adExecuteStream
+            DatabaseStream.Position = 0
+            xmlString = DatabaseStream.ReadText
+            if customerOrdersXML.LoadXML(xmlString) then
             For each customersNode in customerOrdersXML.documentElement.childNodes
         %>
         <li>
@@ -61,6 +73,7 @@
         </li>
         <%
         Next
+            End if
         End if
         %>
     </ul>
