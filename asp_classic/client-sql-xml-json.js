@@ -11,37 +11,37 @@ function loadDoc() {
 }
 function myFunction(xhr) {
     var customers = JSON.parse(xhr.responseText);
-    var customerList = document.getElementById("customers");
+    var customersUL = document.getElementById("customers");
     for (var customerIndex = 0; customerIndex < customers.length; customerIndex++) {
         setTimeout(function (customerIndex) {
             var customerNode = customers[customerIndex];
-            var contactNameAttribute = customerNode.contactName;
-            var contactNameElement = document.createElement("li");
-            contactNameElement.innerHTML = contactNameAttribute;
-            var ordersList = document.createElement("ul");
+            var contactName = customerNode.contactName;
+            var customerLI = document.createElement("li");
+            customerLI.innerHTML = contactName;
+            var ordersUL = document.createElement("ul");
             var orders = customerNode.orders;
             for (var orderIndex = 0; orderIndex < orders.length; orderIndex++) {
                 var orderNode = orders[orderIndex];
                 var orderID = orderNode.orderID;
                 var orderDate = new Date(Date.parse(orderNode.orderDate));
-                var orderElement = document.createElement("li");
-                orderElement.innerHTML = orderID + " - " + orderDate.toLocaleDateString("en-US");
-                ordersList.appendChild(orderElement);
-                var orderDetailList = document.createElement("ul");
+                var orderLI = document.createElement("li");
+                orderLI.innerHTML = orderID + " - " + orderDate.toLocaleDateString("en-US");
+                var orderDetailsUL = document.createElement("ul");
                 var orderDetails = orderNode.orderDetails;
                 for (var orderDetailIndex = 0; orderDetailIndex < orderDetails.length; orderDetailIndex++) {
                     var orderDetail = orderDetails[orderDetailIndex];
                     var product = orderDetail.productName;
                     var unitPrice = parseFloat(orderDetail.unitPrice);
                     var quantity = parseInt(orderDetail.quantity);
-                    var orderDetailElement = document.createElement("li");
-                    orderDetailElement.innerHTML = product + " (" + unitPrice.toFixed(2) + " × " + quantity + ") = " + (unitPrice * quantity).toFixed(2);
-                    orderDetailList.appendChild(orderDetailElement);
+                    var orderDetailLI = document.createElement("li");
+                    orderDetailLI.innerHTML = product + " (" + unitPrice.toFixed(2) + " × " + quantity + ") = " + (unitPrice * quantity).toFixed(2);
+                    orderDetailsUL.appendChild(orderDetailLI);
                 }
-                ordersList.appendChild(orderDetailList);
+                orderLI.appendChild(orderDetailsUL);
+                ordersUL.appendChild(orderLI);
             }
-            contactNameElement.appendChild(ordersList);
-            customerList.appendChild(contactNameElement);
+            customerLI.appendChild(ordersUL);
+            customersUL.appendChild(customerLI);
         }, 1000, customerIndex);
     }
 }
