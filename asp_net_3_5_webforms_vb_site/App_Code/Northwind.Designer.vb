@@ -11,13 +11,13 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("2f535e59-4345-47b5-b6c6-3805a344be19"),  _
+<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("695a2cd5-e804-456d-a804-8d7b1519dee2"),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("NorthwindModel", "FK_Orders_Customers", "Customers", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(NorthwindModel.Customer), "Orders", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(NorthwindModel.Order)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("NorthwindModel", "FK_Order_Details_Orders", "Orders", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(NorthwindModel.Order), "Order_Details", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(NorthwindModel.Order_Detail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("NorthwindModel", "FK_Order_Details_Products", "Products", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(NorthwindModel.Product), "Order_Details", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(NorthwindModel.Order_Detail))> 
 
 'Original file name:
-'Generation date: 5/29/2018 9:55:40 PM
+'Generation date: 5/30/2018 7:48:08 PM
 Namespace NorthwindModel
     '''<summary>
     '''There are no comments for NorthwindModel.Customer in the schema.
