@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="ClientSqlXmlService" CodeBehind="~/App_Code/ClientSqlXmlService.vb" %>
