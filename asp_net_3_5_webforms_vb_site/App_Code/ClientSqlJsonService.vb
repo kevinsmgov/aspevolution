@@ -7,7 +7,7 @@ Imports System.ServiceModel.Web
 
 <ServiceContract(Namespace:="")> _
 <AspNetCompatibilityRequirements(RequirementsMode:=AspNetCompatibilityRequirementsMode.Allowed)> _
-Public Class ClientSqlXmlService
+Public Class ClientSqlJsonService
 
     ' To use HTTP GET, add <WebGet()> attribute. (Default ResponseFormat is WebMessageFormat.Json)
     ' To create an operation that returns XML,

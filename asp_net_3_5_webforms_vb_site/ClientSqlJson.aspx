@@ -9,11 +9,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
         <Services>
-            <asp:ServiceReference Path="~/ClientSqlXmlService.svc" />
+            <asp:ServiceReference Path="~/ClientSqlJsonService.svc" />
         </Services>
     </asp:ScriptManagerProxy>
     <p>AJAX request</p>
     <ul id="customers"></ul>
-    <script language="javascript" type="text/javascript" src="ClientSqlXml.js"></script>
+    <script language="javascript" type="text/javascript" src="ClientSqlJson.js"></script>
 </asp:Content>
 

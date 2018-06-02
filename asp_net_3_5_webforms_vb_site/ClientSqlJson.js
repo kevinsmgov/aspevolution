@@ -1,4 +1,4 @@
-﻿ClientSqlXmlService.GetCustomerOrders(onSuccess, null, null);
+﻿ClientSqlJsonService.GetCustomerOrders(onSuccess, null, null);
 function onSuccess(result) {
     var customers = result;
     var customersUL = document.getElementById("customers");
